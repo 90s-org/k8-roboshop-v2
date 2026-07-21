@@ -64,6 +64,12 @@ spec:
       containers:
       - name: mysql
         image: joindevops/mysql:v1
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+            configMapKeyRef:
+              name: mysql
+              key: MYSQL_ROOT_PASSWORD
         volumeMounts:
         - name: mysql
           mountPath: /data/db
